@@ -1,0 +1,8 @@
+Where: Home-1 Away-0
+When: 5-0 7-0.5 9-1
+Fred Start: Yes-1 No-0
+Joe Offense: Center-1 Forward-0
+Joe Defense: Center-1 Forward-0
+Opp C: Short-1 Tall-0 
+
+1 and 19 are identical
