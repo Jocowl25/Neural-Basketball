@@ -4,7 +4,7 @@
 Node::Node(std::string& line){
      std::stringstream stream(line);
      std::string word;
-     for(int i=0;i<size;i++){
+     for(int i=0;i<6;i++){
         stream>>word;
         input[i]=std::stod(word);
      }
@@ -18,7 +18,7 @@ Node::Node(std::string& line){
 double Node::eval(const Node& other) const{
     double total;
     //Dot product
-    for(unsigned int i=0;i<size;++i){
+    for(unsigned int i=0;i<6;++i){
         total+=input[i]*other.input[i];
     }
     //Step function
@@ -31,14 +31,14 @@ double Node::eval(const Node& other) const{
 }
 
 void Node::update(const Node& other,int pos){
-    for(unsigned int i=0;i<size;++i){
+    for(unsigned int i=0;i<6;++i){
         input[i]+=pos*other.input[i];
     }
 }
 
 std::ostream& operator<<(std::ostream& out, const Node &d){
         out<<"Weights: ";
-        for(unsigned int i=0;i<d.size;i++){
+        for(unsigned int i=0;i<6;i++){
             out<<d.input[i]<<" ";
         }
         out<<"\n\n";
