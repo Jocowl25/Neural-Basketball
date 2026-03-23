@@ -84,7 +84,7 @@ int main(int argc, char* args[]){
     }
     std::string secValStr=std::to_string(secondVal)+" ";
 
-    std::string start=rStrT()+secValStr+rStrT()+rStrT()+rStrT()+rStrT();
+    std::string start=rStrT()+secValStr+rStrT()+rStrT()+rStrT()+rStrT()+rStrT();
     Node weights(start);
     std::cout<<"Initialization\n"<<weights;
     std::cout<<"Starting training\n";
@@ -92,7 +92,7 @@ int main(int argc, char* args[]){
     std::cout<<"Correctness:\n"<<testing(weights,"testing.txt")<<"%\n\n";
 
 
-    std::string finalTestData="0 1 0 1 0 0 1";
+    std::string finalTestData="0 1 0 1 0 0 1 1";
     Node finalTest(finalTestData);
     std::cout<<"---------\n";
     std::cout<<"Checking "+finalTestData<<"\n";

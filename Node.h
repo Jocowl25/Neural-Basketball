@@ -18,7 +18,8 @@ class Node{
        friend std::ostream& operator<<(std::ostream& out, const Node &d);
 
     private:
-        std::array<double,6> input;
+        static const int size=7;
+        std::array<double,size> input;
         double result;
 };
 #endif
