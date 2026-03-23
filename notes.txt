@@ -4,5 +4,6 @@ Fred Start: Yes-1 No-0
 Joe Offense: Center-1 Forward-0
 Joe Defense: Center-1 Forward-0
 Opp C: Short-1 Tall-0 
+Bias: 1
 
 1 and 19 are identical
