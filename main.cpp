@@ -7,13 +7,16 @@
 #include <ctime>
 
 void training(Node& weights,std::string input){
-      std::ifstream inpFile(input);
+    std::ifstream inpFile(input);
     std::string line;
     std::vector<Node> inputs;
+   
+    //add input file data into vector
     while(std::getline(inpFile,line)){
         const Node tmp(line);
         inputs.push_back(tmp);
     }
+
     double correct=0;
     std::cout<<"Progress: \n";
     double total=inputs.size();
@@ -43,6 +46,8 @@ double testing(Node& weights,std::string input){
     std::ifstream inpFile(input);
     std::string line;
     std::vector<Node> inputs;
+    
+    //add input file data into vector
     while(std::getline(inpFile,line)){
         const Node tmp(line);
         inputs.push_back(tmp);
@@ -66,25 +71,31 @@ double testing(Node& weights,std::string input){
     return (correct/total)*100;
 }
 
-int randStr(int max){ //need 6, 2nd is 0-0.5
+//Generate random number from 0 to max (exclusive)
+int randomNumInRange(int max){ 
     int r = std::rand();
     return r%max;
 }
 
-std::string rStrT(){
-    return std::to_string(randStr(2))+" ";
+//Generate string of count random numbers, separated by a space
+std::string randomNumString(int count){
+    std::string output="";
+    for(int i=0;i<count;++i){
+        output+=std::to_string(randomNumInRange(2))+" ";
+    }
+    return output;
 }
 
 int main(int argc, char* args[]){
     std::srand(std::time(0));
     
-    double secondVal=randStr(3);
+    double secondVal=randomNumInRange(3);
     if(secondVal==2){
         secondVal=0.5;
     }
     std::string secValStr=std::to_string(secondVal)+" ";
 
-    std::string start=rStrT()+secValStr+rStrT()+rStrT()+rStrT()+rStrT()+rStrT();
+    std::string start=randomNumString(1)+secValStr+randomNumString(5);
     Node weights(start);
     std::cout<<"Initialization\n"<<weights;
     std::cout<<"Starting training\n";
@@ -96,7 +107,7 @@ int main(int argc, char* args[]){
     Node finalTest(finalTestData);
     std::cout<<"---------\n";
     std::cout<<"Checking "+finalTestData<<"\n";
-    std::cout<<"Result: ";
+    std::cout<<"Result: This game is a ";
     if(weights.eval(finalTest)==1){
         std::cout<<"Win\n";
     }else if(weights.eval(finalTest)==-1){

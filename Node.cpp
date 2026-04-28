@@ -1,13 +1,16 @@
 #include "Node.h"
 #include <sstream>
 #include <cassert>
+
 Node::Node(std::string& line){
      std::stringstream stream(line);
      std::string word;
+     //Set each input value
      for(int i=0;i<size;i++){
         stream>>word;
         input[i]=std::stod(word);
      }
+     //If data node, set value of result; otherwise set to default val of 0
      if(stream>>word){
      result=std::stod(word);
      }else{
